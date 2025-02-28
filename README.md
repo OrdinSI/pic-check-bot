@@ -1,1 +1,1 @@
-# PicCheckBot
+# pic-check-bot
