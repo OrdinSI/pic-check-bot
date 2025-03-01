@@ -48,7 +48,7 @@ type Logger struct {
 // Named ...
 func Named(name string) *Logger {
 	return &Logger{
-		Logger: defaultLogger.With("name", name),
+		Logger: defaultLogger.With("name_logger", name),
 	}
 }
 

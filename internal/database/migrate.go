@@ -2,6 +2,7 @@ package database
 
 import (
 	"embed"
+
 	"gorm.io/gorm"
 
 	"github.com/pressly/goose/v3"

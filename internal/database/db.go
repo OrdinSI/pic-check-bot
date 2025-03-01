@@ -2,11 +2,12 @@ package database
 
 import (
 	"fmt"
+	"time"
+
 	"github.com/OrdinSI/pic-check-bot/internal/config"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
-	"time"
 )
 
 func InitDB(cfg *config.Database) (*gorm.DB, error) {
