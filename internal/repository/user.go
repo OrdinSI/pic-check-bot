@@ -2,6 +2,7 @@ package repository
 
 import (
 	"context"
+	"fmt"
 	"time"
 
 	"github.com/OrdinSI/pic-check-bot/internal/database/txgorm"
@@ -80,4 +81,27 @@ func (r *user) UpdateGroup(ctx context.Context, id int64, group model.Group) err
 		Where("id = ?", id).
 		Updates(&group).Error
 	return err
+}
+
+func (r *user) TopReposts(ctx context.Context) ([]*model.TopRepost, error) {
+	var topReposts []*model.TopRepost
+
+	err := r.TrOrDB(ctx).
+		Model(&model.User{}).
+		Select(`
+            users.id AS user_id,
+            users.username AS username,
+            COUNT(reposts.id) AS count
+        `).
+		Joins("LEFT JOIN reposts ON users.id = reposts.user_id").
+		Group("users.id, users.username").
+		Order("count DESC").
+		Limit(5).
+		Scan(&topReposts).Error
+
+	if err != nil {
+		return nil, fmt.Errorf("failed to get top reposts: %w", err)
+	}
+
+	return topReposts, nil
 }

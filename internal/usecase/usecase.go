@@ -15,6 +15,7 @@ const (
 type Command interface {
 	StartCommand(ctx context.Context, req model.RequestStart) (string, error)
 	HelpCommand(ctx context.Context) (string, error)
+	TopCommand(ctx context.Context) ([]*model.TopRepost, error)
 }
 
 type Message interface {

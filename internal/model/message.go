@@ -29,3 +29,9 @@ type Repost struct {
 func (r *Repost) TableName() string {
 	return "reposts"
 }
+
+type TopRepost struct {
+	UserID   int64  `json:"user_id"`
+	Username string `json:"username"`
+	Count    int    `json:"count"`
+}

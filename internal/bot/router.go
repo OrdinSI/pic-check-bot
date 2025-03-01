@@ -34,6 +34,7 @@ func (r *Router) registerCommands() {
 
 	r.b.RegisterHandler(bot.HandlerTypeMessageText, "/start", bot.MatchTypePrefix, commandHandler.StartHandle)
 	r.b.RegisterHandler(bot.HandlerTypeMessageText, "/help", bot.MatchTypePrefix, commandHandler.HelpHandle)
+	r.b.RegisterHandler(bot.HandlerTypeMessageText, "/top", bot.MatchTypePrefix, commandHandler.TopHandle)
 
 	r.b.RegisterHandler(bot.HandlerTypeMessageText, "", bot.MatchTypeContains, messagesHandler.RegisterMessageHandler)
 

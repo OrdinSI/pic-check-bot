@@ -14,6 +14,8 @@ type User interface {
 	GetGroup(ctx context.Context, id int64) (*model.Group, error)
 	CreateGroup(ctx context.Context, group *model.Group) (int64, error)
 	UpdateGroup(ctx context.Context, id int64, group model.Group) error
+
+	TopReposts(ctx context.Context) ([]*model.TopRepost, error)
 }
 
 type Message interface {

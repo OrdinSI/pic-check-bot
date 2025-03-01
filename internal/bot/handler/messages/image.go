@@ -46,7 +46,7 @@ func (h *MessageHandler) imageHandle(ctx context.Context, b *bot.Bot, update *mo
 		msg := fmt.Sprintf(
 			"⚠️Внимание⚠️\nОбнаружен боян.\nПервоисточник: @%s\nДата: %s\nСсылка: %s",
 			userName,
-			image.PostTime.Format("2006-01-02"),
+			image.PostTime.Format("02.01.2006"),
 			generateLink(image.GroupID, image.MessageID),
 		)
 		_, err := b.SendMessage(ctx, &bot.SendMessageParams{
