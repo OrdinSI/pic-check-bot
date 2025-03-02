@@ -17,13 +17,12 @@ import (
 	commanduc "github.com/OrdinSI/pic-check-bot/internal/usecase/commands"
 	messageuc "github.com/OrdinSI/pic-check-bot/internal/usecase/messages"
 	"github.com/go-telegram/bot"
-	"github.com/joho/godotenv"
 )
 
 func main() {
-	if err := godotenv.Load(".env"); err != nil {
-		stdlog.Fatalf("failed to load .env file: %v", err)
-	}
+	//if err := godotenv.Load(".env"); err != nil {
+	//	stdlog.Fatalf("failed to load .env file: %v", err)
+	//}
 	cfg := config.New()
 
 	if err := log.NewLogger(cfg.Dev); err != nil {
